@@ -3,21 +3,21 @@ package com.karma.modelo;
 import java.math.BigDecimal;
 
 public class Produto {
-	private String produto;
+	private String nome;
 	private BigDecimal valorTotal;
 
 	public Produto(String produto, BigDecimal valorTotal) {
 		super();
-		this.produto = produto;
+		this.nome = produto;
 		this.valorTotal = valorTotal;
 	}
 
-	public String getProduto() {
-		return produto;
+	public String getNome() {
+		return nome;
 	}
 
-	public void setProduto(String produto) {
-		this.produto = produto;
+	public void setNome(String produto) {
+		this.nome = nome;
 	}
 
 	public BigDecimal getValorTotal() {

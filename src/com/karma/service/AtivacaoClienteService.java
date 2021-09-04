@@ -1,8 +1,7 @@
 package com.karma.service;
 
 import com.karma.modelo.Cliente;
-import com.karma.notificacao.NotificacaoSMS;
-import com.karma.notificacao.NotificadorEmail;
+import com.karma.notificacao.Notificador;
 
 
 
@@ -11,15 +10,20 @@ import com.karma.notificacao.NotificadorEmail;
  * @CLASSE DE SERVICO  PARA ATIVAÇÃO CLIENTE
  */
 public class AtivacaoClienteService {
-
+	
+	//implementando atributo notificador
+	private Notificador notificador;
+	
+	// Criando Construtor que recebe dependencia do notificador
+	public AtivacaoClienteService(Notificador notificador) {
+		this.notificador = notificador;
+	}
+	
+	
 	public void  ativar (Cliente cliente) {
 		
 		cliente.setAtivo();
-		NotificadorEmail notificadorEmail = new NotificadorEmail();
-		notificadorEmail.notificar(cliente, "Seu cadastro está  ativo !");
-		
-		NotificacaoSMS  notificacaoSMS =  new NotificacaoSMS();
-		notificacaoSMS.notificar(cliente, "Seu cadastro está ativo !");
+		this.notificador.notificar(cliente, "Seu cadastro está  ativo !");
 		
 		
 	}
